@@ -3,448 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oreoluwaposi Samuel — Visual Communicator & Photographer</title>
+    <title>Oreoluwaposi Samuel — CV & Resume</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #030305;
-            --surface: #0a0a0f;
-            --surface-hover: #13131a;
-            --border: #1f1f2e;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.1);
+            --bg: #050505;
+            --surface: #0a0a0c;
+            --border: #1c1c21;
+            --text-primary: #ededed;
+            --text-secondary: #888888;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg);
             color: var(--text-primary);
             line-height: 1.6;
-            padding: 4rem 1.5rem;
-            -webkit-font-smoothing: antialiased;
+            padding: 5rem 1.5rem;
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Hero / Landing Header */
-        header {
-            margin-bottom: 4rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 3rem;
-        }
-
-        .hero-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .live-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
-            background: rgba(34, 197, 94, 0.1);
-            color: #4ade80;
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            padding: 0.3rem 0.8rem;
-            border-radius: 999px;
-            font-weight: 500;
-        }
-
-        .pulse-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #4ade80;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #4ade80;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 40%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .bio {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            font-weight: 300;
-            line-height: 1.7;
+        .container { max-width: 680px; margin: 0 auto; }
+        .nav-switch {
             margin-bottom: 2rem;
-            max-width: 700px;
+            font-size: 0.85rem;
         }
-
-        /* Action Buttons */
-        .cta-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--surface);
+        .nav-switch a {
             color: var(--text-primary);
-            border: 1px solid var(--border);
-            padding: 0.7rem 1.25rem;
-            border-radius: 8px;
-            font-size: 0.875rem;
-            font-weight: 500;
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            border-bottom: 1px solid var(--text-primary);
+            padding-bottom: 2px;
         }
-
-        .btn.primary {
-            background: var(--text-primary);
-            color: var(--bg);
-            border-color: var(--text-primary);
-        }
-
-        .btn:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .btn.primary:hover {
-            opacity: 0.9;
-        }
-
-        /* Interactive Sections */
-        .section-title {
-            font-size: 0.8125rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1.25rem;
-            margin-bottom: 3.5rem;
-        }
-
-        /* Interactive Card Component */
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-
-        .card:hover {
-            background: var(--surface-hover);
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.75rem;
-        }
-
-        .card-tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            background: var(--accent-glow);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .card-action-hint {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        .card-desc {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        /* Interactive Modal Drawer */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 1.5rem;
-            z-index: 1000;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            max-width: 600px;
-            width: 100%;
-            padding: 2.5rem;
-            position: relative;
-            animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @keyframes modalPop {
-            0% { transform: scale(0.95); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 1.25rem;
-            cursor: pointer;
-        }
-
-        .close-modal:hover {
-            color: var(--text-primary);
-        }
-
-        .modal-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            display: block;
-            font-weight: 600;
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .modal-body {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 300;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-footer-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 5rem;
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            body { padding: 2rem 1rem; }
-        }
+        header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        h1 { font-size: 2rem; font-weight: 500; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1rem; }
+        .contact-bar { display: flex; gap: 1.25rem; font-size: 0.875rem; flex-wrap: wrap; }
+        .contact-link { color: var(--text-primary); text-decoration: none; border-bottom: 1px solid var(--border); }
+        section { margin-bottom: 3rem; }
+        .section-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 1.25rem; }
+        .item { margin-bottom: 1.5rem; }
+        .item-title { font-size: 1rem; font-weight: 500; }
+        .item-meta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.35rem; }
+        .item-desc { font-size: 0.9rem; color: var(--text-secondary); font-weight: 300; }
+        footer { border-top: 1px solid var(--border); padding-top: 2rem; font-size: 0.8rem; color: var(--text-secondary); display: flex; justify-content: space-between; }
     </style>
 </head>
 <body>
-
     <div class="container">
+        <div class="nav-switch">
+            <a href="landing.html">⚡ Switch to Graphic Landing Page Version →</a>
+        </div>
         
-        <!-- Hero Landing Header -->
         <header>
-            <div class="hero-top">
-                <div class="live-badge">
-                    <div class="pulse-dot"></div>
-                    Live Portfolio & Digital Workspace
-                </div>
-            </div>
             <h1>Oreoluwaposi Samuel</h1>
-            <p class="bio">Visual Communicator, Web3 Brand Architect & Photographer. Designing high-impact decentralized interfaces, design systems, and visual narratives with absolute clarity.</p>
-            
-            <div class="cta-actions">
-                <a href="mailto:catalystvx@gmail.com" class="btn primary">✉ Email Me Direct</a>
-                <a href="tel:+2348025986027" class="btn">📞 +234 802 598 6027</a>
-                <a href="https://www.behance.net/sircatalyst" target="_blank" class="btn">Behance Profile ↗</a>
-                <a href="https://linktr.ee/sircatalyst" target="_blank" class="btn">Linktree ↗</a>
+            <div class="subtitle">Visual Communicator, Brand Architect & Photographer</div>
+            <div class="contact-bar">
+                <a href="mailto:catalystvx@gmail.com" class="contact-link">catalystvx@gmail.com ↗</a>
+                <a href="tel:+2348025986027" class="contact-link">+234 802 598 6027 ↗</a>
+                <a href="https://www.behance.net/sircatalyst" target="_blank" class="contact-link">Behance ↗</a>
             </div>
         </header>
 
-        <!-- Web3 & Product Design Section -->
         <section>
-            <div class="section-title">Product & Web3 Works (Click for Details)</div>
-            <div class="grid">
-                
-                <div class="card" onclick="openModal('Liquidity Matrix Dashboard', 'DeFi Protocol UI', 'Engineered for real-time yield compounding, multi-chain asset management, and seamless decentralized liquidity tracking. Built with structured telemetry layers to drastically reduce trader cognitive fatigue.', 'https://www.behance.net/sircatalyst')">
-                    <div class="card-header">
-                        <span class="card-tag">DeFi Protocol UI</span>
-                        <span class="card-action-hint">View Case Study ↗</span>
-                    </div>
-                    <h3 class="card-title">Liquidity Matrix Dashboard</h3>
-                    <p class="card-desc">Decentralized exchange telemetry interface engineered for real-time yield compounding and pool tracking.</p>
-                </div>
+            <div class="section-title">Professional Summary</div>
+            <p style="color: var(--text-secondary); font-weight: 300; font-size: 0.95ln;">Detailed visual communicator and Web3 system designer with years of experience crafting high-impact digital interfaces, design tokens, and editorial photography narratives.</p>
+        </section>
 
-                <div class="card" onclick="openModal('Fintech Mobile Experience', 'Product Design', 'A streamlined banking interface engineered to simplify asset management, peer transfers, and micro-investments through minimalist interaction patterns.', 'https://www.behance.net/sircatalyst')">
-                    <div class="card-header">
-                        <span class="card-tag">Product Design</span>
-                        <span class="card-action-hint">View Case Study ↗</span>
-                    </div>
-                    <h3 class="card-title">Fintech Mobile Experience</h3>
-                    <p class="card-desc">Streamlined mobile banking experience focused on frictionless peer transfers and dark-mode system tokens.</p>
-                </div>
-
-                <div class="card" onclick="openModal('Aetherium NFT Gallery', 'Web3 Brand Identity', 'Curated Web3 exhibition portal featuring immersive dark-mode card layouts, encrypted wallet authentication flows, and generative asset grids.', 'https://www.behance.net/sircatalyst')">
-                    <div class="card-header">
-                        <span class="card-tag">Web3 Identity</span>
-                        <span class="card-action-hint">View Case Study ↗</span>
-                    </div>
-                    <h3 class="card-title">Aetherium NFT Gallery</h3>
-                    <p class="card-desc">Curated digital exhibition space featuring encrypted wallet authentication flows and minimalist art grids.</p>
-                </div>
-
-                <div class="card" onclick="openModal('Enterprise Analytics Telemetry', 'Data Visualization', 'High-density telemetry monitoring dashboard built to drastically reduce operator cognitive fatigue through structured hierarchical data visualization states.', 'https://www.behance.net/sircatalyst')">
-                    <div class="card-header">
-                        <span class="card-tag">Data Visualization</span>
-                        <span class="card-action-hint">View Case Study ↗</span>
-                    </div>
-                    <h3 class="card-title">Enterprise Analytics Telemetry</h3>
-                    <p class="card-desc">High-density telemetry monitoring dashboard built to reduce operator cognitive fatigue through structured hierarchy.</p>
-                </div>
-
+        <section>
+            <div class="section-title">Selected Experience</div>
+            <div class="item">
+                <div class="item-title">Lead Visual & Web3 UI Architect</div>
+                <div class="item-meta">Independent / Contract • 2023 — Present</div>
+                <div class="item-desc">Designing multi-chain DeFi protocol telemetry interfaces, dark-mode design systems, and cryptographic brand guidelines.</div>
+            </div>
+            <div class="item">
+                <div class="item-title">Commercial Photographer & Visual Artist</div>
+                <div class="item-meta">Freelance • 2021 — Present</div>
+                <div class="item-desc">Executing urban brutalist architectural series, product stills, and low-key dramatic portraiture.</div>
             </div>
         </section>
 
-        <!-- Photography Section -->
-        <section>
-            <div class="section-title">Photography & Visual Art (Click to Inspect)</div>
-            <div class="grid">
-                
-                <div class="card" onclick="openModal('Concrete Monoliths Series', 'Urban Brutalism', 'A striking monochrome exploration of geometric structural forms, harsh sunlight angles, and architectural volume within brutalist concrete environments.', 'https://www.behance.net/sircatalyst')">
-                    <div class="card-header">
-                        <span class="card-tag">Urban Brutalism</span>
-                        <span class="card-action-hint">Explore Series ↗</span>
-                    </div>
-                    <h3 class="card-title">Concrete Monoliths</h3>
-                    <p class="card-desc">Monochrome exploration of geometric structural forms, stark shadows, and architectural volume.</p>
-                </div>
-
-                <div class="card" onclick="openModal('The Human Fabric', 'Portraiture', 'Low-key dramatic lighting studies capturing raw personal texture, ambient color grading, and intimate psychological character depth.', 'https://www.behance.net/sircatalyst')">
-                    <div class="card-header">
-                        <span class="card-tag">Portraiture</span>
-                        <span class="card-action-hint">Explore Series ↗</span>
-                    </div>
-                    <h3 class="card-title">The Human Fabric</h3>
-                    <p class="card-desc">Low-key dramatic lighting studies capturing raw personal texture and intimate character depth.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Interactive Modal Component -->
-        <div class="modal-overlay" id="projectModal" onclick="closeModalOnBg(event)">
-            <div class="modal-content">
-                <button class="close-modal" onclick="closeModal()">×</button>
-                <span class="modal-tag" id="modalTag">Category</span>
-                <h2 class="modal-title" id="modalTitle">Project Title</h2>
-                <p class="modal-body" id="modalDesc">Detailed project description and case study insights will appear here when clicked.</p>
-                <div class="modal-footer-links">
-                    <a href="https://www.behance.net/sircatalyst" id="modalLink" target="_blank" class="btn primary">View Full Project on Behance ↗</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
         <footer>
             <span>© 2026 Oreoluwaposi Samuel</span>
-            <span>Remote / Nigeria</span>
+            <span>CV & Resume Portfolio</span>
         </footer>
-
     </div>
-
-    <script>
-        function openModal(title, tag, desc, link) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalTag').innerText = tag;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('modalLink').href = link;
-            document.getElementById('projectModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('projectModal').classList.remove('active');
-        }
-
-        function closeModalOnBg(event) {
-            if (event.target === document.getElementById('projectModal')) {
-                closeModal();
-            }
-        }
-    </script>
-
 </body>
 </html>
