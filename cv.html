@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oreoluwaposi Samuel — Traditional CV & Resume</title>
+    <title>Oreoluwaposi Samuel — Curriculum Vitae</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0f1217;
             --surface: #161b22;
-            --surface-hover: #1f242c;
             --border: #30363d;
             --text-primary: #e6edf3;
             --text-secondary: #8b949e;
@@ -23,94 +22,160 @@
             background-color: var(--bg);
             color: var(--text-primary);
             line-height: 1.6;
-            padding: 5rem 1.5rem;
+            padding: 4rem 1.5rem;
         }
-        .container { max-width: 680px; margin: 0 auto; }
-        .nav-switch { margin-bottom: 2rem; font-size: 0.85rem; font-family: 'Fira Code', monospace; }
+        .cv-container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3.5rem;
+            box-shadow: 0 16px 32px rgba(0,0,0,0.5);
+        }
+        .nav-switch { margin-bottom: 2.5rem; font-size: 0.85rem; font-family: 'Fira Code', monospace; }
         .nav-switch a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
-        header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
-        h1 { font-size: 2rem; font-weight: 500; margin-bottom: 0.5rem; }
-        .subtitle { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1rem; font-family: 'Fira Code', monospace; }
-        .contact-bar { display: flex; gap: 1rem; font-size: 0.85rem; flex-wrap: wrap; margin-top: 1rem; }
-        .contact-link { color: var(--text-primary); text-decoration: none; border-bottom: 1px solid var(--border); font-family: 'Fira Code', monospace; }
-        .contact-link:hover { border-color: var(--accent); color: var(--accent); }
-        section { margin-bottom: 3rem; }
-        .section-title { font-family: 'Fira Code', monospace; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 1.25rem; }
-        .item { margin-bottom: 1.75rem; }
-        .item-title { font-size: 1rem; font-weight: 500; }
-        .item-meta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.35rem; font-family: 'Fira Code', monospace; }
-        .item-desc { font-size: 0.9rem; color: var(--text-secondary); font-weight: 300; line-height: 1.6; }
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .skill-tag { font-family: 'Fira Code', monospace; font-size: 0.75rem; background: var(--surface); border: 1px solid var(--border); padding: 0.3rem 0.7rem; border-radius: 4px; color: #58a6ff; }
-        footer { border-top: 1px solid var(--border); padding-top: 2rem; font-size: 0.8rem; color: var(--text-secondary); display: flex; justify-content: space-between; font-family: 'Fira Code', monospace; }
+        
+        /* CV Header */
+        .cv-header { border-bottom: 2px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+        .cv-name { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+        .cv-title { font-size: 1.1rem; color: var(--accent); font-family: 'Fira Code', monospace; font-weight: 500; margin-bottom: 1rem; }
+        .cv-contacts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); font-family: 'Fira Code', monospace; }
+        .cv-contacts a { color: var(--text-primary); text-decoration: none; }
+        .cv-contacts a:hover { color: var(--accent); }
+
+        /* CV Sections */
+        .cv-section { margin-bottom: 2rem; }
+        .cv-section-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+        }
+        .cv-summary { font-size: 0.95rem; color: var(--text-secondary); font-weight: 300; line-height: 1.7; }
+
+        /* Experience Items */
+        .cv-item { margin-bottom: 1.5rem; }
+        .cv-item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 0.2rem; }
+        .cv-position { font-size: 1.05rem; font-weight: 600; }
+        .cv-company { font-size: 0.9rem; color: var(--text-primary); font-weight: 500; }
+        .cv-date { font-size: 0.8rem; color: var(--text-secondary); font-family: 'Fira Code', monospace; }
+        .cv-description { font-size: 0.9rem; color: var(--text-secondary); font-weight: 300; margin-top: 0.3rem; line-height: 1.6; }
+
+        /* Skills Lists */
+        .cv-skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .cv-skill-badge {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            background: rgba(88, 166, 255, 0.1);
+            color: #58a6ff;
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* CV Footer */
+        .cv-footer {
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: 'Fira Code', monospace;
+        }
+
+        @media(max-width: 600px) {
+            .cv-container { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="cv-container">
         <div class="nav-switch">
             <a href="index.html">← Check Interactive Landing Page</a>
         </div>
         
-        <header>
-            <h1>Oreoluwaposi Samuel</h1>
-            <div class="subtitle">Visual Communicator, Web3 Architect & Photographer</div>
-            <div class="contact-bar">
-                <a href="https://cal.com/dcatalysteffect/call" target="_blank" class="contact-link" style="color:var(--accent); border-color:var(--accent);">📅 Schedule a Call ↗</a>
-                <a href="mailto:catalystvx@gmail.com" class="contact-link">Email ↗</a>
-                <a href="https://www.behance.net/sircatalyst" target="_blank" class="contact-link">Behance ↗</a>
-                <a href="https://www.instagram.com/sir.catalyst" target="_blank" class="contact-link">Instagram ↗</a>
-                <a href="https://www.instagram.com/sir.catalyst.jpg" target="_blank" class="contact-link">IG Photos ↗</a>
-                <a href="https://www.pinterest.com/sir__catalyst/posts/" target="_blank" class="contact-link">Pinterest ↗</a>
-                <a href="http://medium.com/@sir-catalyst" target="_blank" class="contact-link">Medium ↗</a>
+        <div class="cv-header">
+            <h1 class="cv-name">Oreoluwaposi Samuel</h1>
+            <div class="cv-title">Visual Communicator, Web3 Architect & Commercial Photographer</div>
+            <div class="cv-contacts">
+                <div>📧 <a href="mailto:catalystvx@gmail.com">catalystvx@gmail.com</a></div>
+                <div>📞 <a href="tel:+2348025986027">+234 802 598 6027</a></div>
+                <div>📅 <a href="https://cal.com/dcatalysteffect/call" target="_blank">Schedule a Call ↗</a></div>
+                <div>🎨 <a href="https://www.behance.net/sircatalyst" target="_blank">Behance Profile ↗</a></div>
+                <div>📸 <a href="https://www.instagram.com/sir.catalyst" target="_blank">Instagram ↗</a></div>
+                <div>✍️ <a href="http://medium.com/@sir-catalyst" target="_blank">Medium Articles ↗</a></div>
             </div>
-        </header>
+        </div>
 
-        <section>
-            <div class="section-title">Professional Summary</div>
-            <p style="color: var(--text-secondary); font-weight: 300; line-height: 1.7;">Multidisciplinary visual communicator, Web3 brand architect, and commercial photographer with deep experience designing cutting-edge digital properties. Specializes in building interactive 3D web experiences, real-time analytics dashboards, curated design portfolios, and vibrant creative communities that merge reductive minimalism with rigorous technical telemetry.</p>
-        </section>
+        <div class="cv-section">
+            <div class="cv-section-title">Professional Summary</div>
+            <p class="cv-summary">Multidisciplinary visual communicator, Web3 brand architect, and commercial photographer with comprehensive expertise in designing cutting-edge digital properties. Specializes in building interactive 3D web environments, real-time analytics dashboards, curated design portfolios, and vibrant creative communities that merge reductive minimalism with rigorous technical telemetry.</p>
+        </div>
 
-        <section>
-            <div class="section-title">Core Competencies & Technical Skills</div>
-            <div class="skills-grid">
-                <span class="skill-tag">Interactive 3D / WebGL</span>
-                <span class="skill-tag">Real-Time Dashboards</span>
-                <span class="skill-tag">UI/UX Architecture</span>
-                <span class="skill-tag">Web3 & DeFi Protocols</span>
-                <span class="skill-tag">Design Systems & Tokens</span>
-                <span class="skill-tag">Creative Communities</span>
-                <span class="skill-tag">Commercial Photography</span>
-                <span class="skill-tag">Urban Brutalism Visuals</span>
-                <span class="skill-tag">Brand Strategy</span>
+        <div class="cv-section">
+            <div class="cv-section-title">Core Competencies & Technical Skills</div>
+            <div class="cv-skills-list">
+                <span class="cv-skill-badge">Interactive 3D / WebGL</span>
+                <span class="cv-skill-badge">Real-Time Dashboards</span>
+                <span class="cv-skill-badge">UI/UX Architecture</span>
+                <span class="cv-skill-badge">Web3 & DeFi Protocols</span>
+                <span class="cv-skill-badge">Design Systems & Tokens</span>
+                <span class="cv-skill-badge">Creative Communities</span>
+                <span class="cv-skill-badge">Commercial Photography</span>
+                <span class="cv-skill-badge">Urban Brutalism Visuals</span>
+                <span class="cv-skill-badge">Brand Strategy</span>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <div class="section-title">Professional Experience</div>
+        <div class="cv-section">
+            <div class="cv-section-title">Professional Experience</div>
             
-            <div class="item">
-                <div class="item-title">Lead Visual & Web3 UI Architect</div>
-                <div class="item-meta">Independent / Contract • 2023 — Present</div>
-                <div class="item-desc">Architecting interactive 3D web environments, multi-chain DeFi protocol interfaces, and real-time telemetry dashboards. Designing scalable dark-mode design token libraries and cryptographic brand identities for emerging decentralized tech platforms.</div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div>
+                        <span class="cv-position">Lead Visual & Web3 UI Architect</span>
+                        <span class="cv-company">— Independent / Contract</span>
+                    </div>
+                    <div class="cv-date">2023 — Present</div>
+                </div>
+                <div class="cv-description">Architecting interactive 3D web environments, multi-chain DeFi protocol interfaces, and real-time telemetry dashboards. Designing scalable dark-mode design token libraries and cryptographic brand identities for emerging decentralized tech platforms.</div>
             </div>
 
-            <div class="item">
-                <div class="item-title">Commercial Photographer & Visual Artist</div>
-                <div class="item-meta">Freelance • 2021 — Present</div>
-                <div class="item-desc">Producing high-end urban brutalist photography portfolios, atmospheric portraiture series with low-key dramatic lighting, and precision product styling for digital exhibitions and artist communities.</div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div>
+                        <span class="cv-position">Commercial Photographer & Visual Artist</span>
+                        <span class="cv-company">— Freelance</span>
+                    </div>
+                    <div class="cv-date">2021 — Present</div>
+                </div>
+                <div class="cv-description">Producing high-end urban brutalist photography portfolios, atmospheric portraiture series with low-key dramatic lighting, and precision product styling for digital exhibitions and artist communities.</div>
             </div>
 
-            <div class="item">
-                <div class="item-title">Product Designer & Community Brand Strategist</div>
-                <div class="item-meta">Remote Collaborations • 2020 — 2023</div>
-                <div class="item-desc">Engineered user experiences for digital portfolios and creative networks, focusing on reducing user friction, structuring complex multi-tiered data systems, and fostering collaborative online creator spaces.</div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div>
+                        <span class="cv-position">Product Designer & Community Strategist</span>
+                        <span class="cv-company">— Remote Collaborations</span>
+                    </div>
+                    <div class="cv-date">2020 — 2023</div>
+                </div>
+                <div class="cv-description">Engineered user experiences for digital portfolios and creative networks, focusing on reducing user friction, structuring complex multi-tiered data systems, and fostering collaborative online creator spaces.</div>
             </div>
-        </section>
+        </div>
 
-        <footer>
+        <div class="cv-footer">
             <span>© 2026 Oreoluwaposi Samuel</span>
-            <span>Traditional CV & Resume</span>
-        </footer>
+            <span>Curriculum Vitae</span>
+        </div>
     </div>
 </body>
 </html>
