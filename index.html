@@ -3,90 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oreoluwaposi Samuel — CV & Resume</title>
+    <title>Oreoluwaposi Samuel — Visual Communicator & Photographer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #050505;
-            --surface: #0a0a0c;
-            --border: #1c1c21;
-            --text-primary: #ededed;
-            --text-secondary: #888888;
+            --bg: #030305;
+            --surface: #0a0a0f;
+            --surface-hover: #13131a;
+            --border: #1f1f2e;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.1);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg);
             color: var(--text-primary);
             line-height: 1.6;
-            padding: 5rem 1.5rem;
+            padding: 4rem 1.5rem;
         }
-        .container { max-width: 680px; margin: 0 auto; }
-        .nav-switch {
-            margin-bottom: 2rem;
-            font-size: 0.85rem;
+        .container { max-width: 800px; margin: 0 auto; }
+        .nav-switch { margin-bottom: 2rem; font-size: 0.85rem; font-family: 'Space Grotesk', sans-serif; }
+        .nav-switch a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 3rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .bio { color: var(--text-secondary); font-size: 1.1rem; font-weight: 300; margin-bottom: 2rem; }
+        .cta-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .btn {
+            font-family: 'Space Grotesk', sans-serif;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--surface); color: var(--text-primary);
+            border: 1px solid var(--border); padding: 0.7rem 1.25rem;
+            border-radius: 8px; font-size: 0.875rem; text-decoration: none; cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .nav-switch a {
-            color: var(--text-primary);
-            text-decoration: none;
-            border-bottom: 1px solid var(--text-primary);
-            padding-bottom: 2px;
+        .btn.primary { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
+        .btn:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8125rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.75rem;
         }
-        header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
-        h1 { font-size: 2rem; font-weight: 500; margin-bottom: 0.5rem; }
-        .subtitle { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1rem; }
-        .contact-bar { display: flex; gap: 1.25rem; font-size: 0.875rem; flex-wrap: wrap; }
-        .contact-link { color: var(--text-primary); text-decoration: none; border-bottom: 1px solid var(--border); }
-        section { margin-bottom: 3rem; }
-        .section-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 1.25rem; }
-        .item { margin-bottom: 1.5rem; }
-        .item-title { font-size: 1rem; font-weight: 500; }
-        .item-meta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.35rem; }
-        .item-desc { font-size: 0.9rem; color: var(--text-secondary); font-weight: 300; }
-        footer { border-top: 1px solid var(--border); padding-top: 2rem; font-size: 0.8rem; color: var(--text-secondary); display: flex; justify-content: space-between; }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.25rem; margin-bottom: 3.5rem; }
+        .card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.25s ease;
+        }
+        .card:hover { background: var(--surface-hover); border-color: var(--accent); transform: translateY(-3px); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+        .card-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); background: var(--accent-glow); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600; }
+        .card-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .card-desc { color: var(--text-secondary); font-size: 0.9rem; font-weight: 300; line-height: 1.6; }
+        
+        /* Modal Popup */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px);
+            display: none; justify-content: center; align-items: center; padding: 1.5rem; z-index: 1000;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+            max-width: 600px; width: 100%; padding: 2.5rem; position: relative;
+        }
+        .close-modal { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--text-secondary); font-size: 1.25rem; cursor: pointer; }
+        footer { margin-top: 5rem; border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; font-size: 0.8125rem; color: var(--text-secondary); }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="nav-switch">
-            <a href="landing.html">⚡ Switch to Graphic Landing Page Version →</a>
+            <a href="cv.html">📄 View Traditional CV / Resume Version →</a>
         </div>
-        
+
         <header>
             <h1>Oreoluwaposi Samuel</h1>
-            <div class="subtitle">Visual Communicator, Brand Architect & Photographer</div>
-            <div class="contact-bar">
-                <a href="mailto:catalystvx@gmail.com" class="contact-link">catalystvx@gmail.com ↗</a>
-                <a href="tel:+2348025986027" class="contact-link">+234 802 598 6027 ↗</a>
-                <a href="https://www.behance.net/sircatalyst" target="_blank" class="contact-link">Behance ↗</a>
+            <p class="bio">Visual Communicator, Web3 Brand Architect & Photographer. Designing high-impact decentralized interfaces, design systems, and visual narratives.</p>
+            <div class="cta-actions">
+                <a href="mailto:catalystvx@gmail.com" class="btn primary">✉ Email Direct</a>
+                <a href="tel:+2348025986027" class="btn">📞 +234 802 598 6027</a>
+                <a href="https://www.behance.net/sircatalyst" target="_blank" class="btn">Behance ↗</a>
             </div>
         </header>
 
         <section>
-            <div class="section-title">Professional Summary</div>
-            <p style="color: var(--text-secondary); font-weight: 300; font-size: 0.95ln;">Detailed visual communicator and Web3 system designer with years of experience crafting high-impact digital interfaces, design tokens, and editorial photography narratives.</p>
+            <div class="section-title">Product & Web3 Works (Click for Details)</div>
+            <div class="grid">
+                <div class="card" onclick="openModal('Liquidity Matrix Dashboard', 'DeFi Protocol UI', 'Engineered for real-time yield compounding, multi-chain asset management, and seamless decentralized liquidity tracking.')">
+                    <div class="card-header"><span class="card-tag">DeFi Protocol UI</span></div>
+                    <h3 class="card-title">Liquidity Matrix Dashboard</h3>
+                    <p class="card-desc">Decentralized exchange telemetry interface engineered for real-time yield compounding and pool tracking.</p>
+                </div>
+                <div class="card" onclick="openModal('Aetherium NFT Gallery', 'Web3 Brand Identity', 'Curated Web3 exhibition portal featuring immersive dark-mode card layouts and encrypted wallet authentication flows.')">
+                    <div class="card-header"><span class="card-tag">Web3 Identity</span></div>
+                    <h3 class="card-title">Aetherium NFT Gallery</h3>
+                    <p class="card-desc">Curated digital exhibition space featuring encrypted wallet authentication flows and minimalist art grids.</p>
+                </div>
+            </div>
         </section>
 
         <section>
-            <div class="section-title">Selected Experience</div>
-            <div class="item">
-                <div class="item-title">Lead Visual & Web3 UI Architect</div>
-                <div class="item-meta">Independent / Contract • 2023 — Present</div>
-                <div class="item-desc">Designing multi-chain DeFi protocol telemetry interfaces, dark-mode design systems, and cryptographic brand guidelines.</div>
-            </div>
-            <div class="item">
-                <div class="item-title">Commercial Photographer & Visual Artist</div>
-                <div class="item-meta">Freelance • 2021 — Present</div>
-                <div class="item-desc">Executing urban brutalist architectural series, product stills, and low-key dramatic portraiture.</div>
+            <div class="section-title">Photography & Visual Art</div>
+            <div class="grid">
+                <div class="card" onclick="openModal('Concrete Monoliths Series', 'Urban Brutalism', 'A striking monochrome exploration of geometric structural forms, harsh sunlight angles, and architectural volume.')">
+                    <div class="card-header"><span class="card-tag">Urban Brutalism</span></div>
+                    <h3 class="card-title">Concrete Monoliths</h3>
+                    <p class="card-desc">Monochrome exploration of geometric structural forms, stark shadows, and architectural volume.</p>
+                </div>
             </div>
         </section>
 
+        <div class="modal-overlay" id="projectModal" onclick="closeModalOnBg(event)">
+            <div class="modal-content">
+                <button class="close-modal" onclick="closeModal()">×</button>
+                <span class="card-tag" id="modalTag" style="margin-bottom:0.5rem;display:inline-block;">Tag</span>
+                <h2 style="font-family:'Space Grotesk'; font-size:1.5rem; margin-bottom:1rem;" id="modalTitle">Title</h2>
+                <p style="color:var(--text-secondary); margin-bottom:1.5rem;" id="modalDesc">Description</p>
+                <a href="https://www.behance.net/sircatalyst" id="modalLink" target="_blank" class="btn primary">View Full Case Study on Behance ↗</a>
+            </div>
+        </div>
+
         <footer>
             <span>© 2026 Oreoluwaposi Samuel</span>
-            <span>CV & Resume Portfolio</span>
+            <span>Landing Page Workspace</span>
         </footer>
     </div>
+
+    <script>
+        function openModal(title, tag, desc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalTag').innerText = tag;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('projectModal').classList.add('active');
+        }
+        function closeModal() { document.getElementById('projectModal').classList.remove('active'); }
+        function closeModalOnBg(event) { if (event.target === document.getElementById('projectModal')) closeModal(); }
+    </script>
 </body>
 </html>
