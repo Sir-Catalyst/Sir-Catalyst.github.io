@@ -9,12 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0a;
-            --text-primary: #ededed;
+            --bg: #0c0c0c;
+            --text-primary: #f3f3f3;
             --text-secondary: #888888;
             --border: #222222;
-            --card-bg: #121212;
-            --card-hover: #181818;
+            --accent: #3b82f6;
+            --card-bg: #141414;
+            --card-hover: #1c1c1c;
         }
 
         * {
@@ -28,56 +29,86 @@
             background-color: var(--bg);
             color: var(--text-primary);
             line-height: 1.6;
-            padding: 4rem 1.5rem;
+            padding: 5rem 1.5rem;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 720px;
+            max-width: 760px;
             margin: 0 auto;
         }
 
         header {
             margin-bottom: 4rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2.5rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
         }
 
         h1 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 500;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.03em;
             margin-bottom: 0.75rem;
         }
 
         .bio {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 300;
-            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            margin-bottom: 1.75rem;
+            max-width: 680px;
         }
 
-        .meta-links {
+        .contact-strip {
             display: flex;
+            flex-wrap: wrap;
             gap: 1.5rem;
             font-size: 0.875rem;
         }
 
-        .meta-links a {
+        .contact-strip a {
             color: var(--text-primary);
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
             border-bottom: 1px solid var(--text-secondary);
             padding-bottom: 2px;
-            transition: border-color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
-        .meta-links a:hover {
-            border-color: var(--text-primary);
+        .contact-strip a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         .section-title {
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
         }
@@ -91,28 +122,31 @@
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: background 0.2s ease, border-color 0.2s ease;
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.25s ease;
             text-decoration: none;
             color: inherit;
             display: block;
+            position: relative;
+            overflow: hidden;
         }
 
         .project-card:hover {
             background: var(--card-hover);
-            border-color: #333;
+            border-color: #333333;
+            transform: translateY(-2px);
         }
 
         .project-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .project-title {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 500;
             letter-spacing: -0.01em;
         }
@@ -121,14 +155,16 @@
             font-size: 0.75rem;
             color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
+            font-weight: 500;
         }
 
         .project-description {
             color: var(--text-secondary);
-            font-size: 0.925rem;
+            font-size: 0.95rem;
             font-weight: 300;
-            margin-bottom: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
         }
 
         .project-tags {
@@ -139,25 +175,68 @@
 
         .tag {
             font-size: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             color: var(--text-secondary);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .interactive-cta {
+            margin-top: 5rem;
+            background: linear-gradient(180deg, #121212 0%, #161616 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .interactive-cta h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .interactive-cta p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--text-primary);
+            color: var(--bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
         }
 
         footer {
-            margin-top: 5rem;
+            margin-top: 4rem;
             font-size: 0.8125rem;
             color: var(--text-secondary);
             border-top: 1px solid var(--border);
             padding-top: 2rem;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         @media (max-width: 600px) {
             body {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1rem;
+            }
+            .contact-strip {
+                gap: 1rem;
             }
         }
     </style>
@@ -166,80 +245,86 @@
 
     <div class="container">
         <header>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                Available for Fulltime & Freelance Projects
+            </div>
             <h1>Oreoluwaposi Samuel</h1>
-            <p class="bio">Visual Communicator & Strategist crafting meticulous digital experiences, interface systems, and brand identities with a focus on functional elegance.</p>
-            <div class="meta-links">
-                <a href="https://www.behance.net/sircatalyst" target="_blank">Behance</a>
-                <a href="https://linktr.ee/sircatalyst" target="_blank">Linktree</a>
-                <a href="https://github.com/dorcasjames/samuel-otemuyiwa" target="_blank">Source</a>
+            <p class="bio">Visual Communicator & Strategist. Crafting meticulous digital interfaces, design systems, and brand architectures with acute attention to functional typography and immersive user journeys.</p>
+            
+            <div class="contact-strip">
+                <a href="mailto:catalystvx@gmail.com">catalystvx@gmail.com</a>
+                <a href="tel:+2348025986027">+234 802 598 6027</a>
+                <a href="https://www.behance.net/sircatalyst" target="_blank">Behance Portfolio ↗</a>
+                <a href="https://linktr.ee/sircatalyst" target="_blank">Linktree ↗</a>
             </div>
         </header>
 
         <main>
-            <div class="section-title">Selected Works (7 Projects)</div>
+            <div class="section-title">Selected Works & Case Studies</div>
             
             <div class="projects-grid">
                 
                 <a href="https://www.behance.net/sircatalyst" class="project-card" target="_blank">
                     <div class="project-header">
-                        <span class="project-title">Fintech Mobile Experience</span>
-                        <span class="project-category">UI/UX Design</span>
+                        <span class="project-title">Fintech Mobile Banking Experience</span>
+                        <span class="project-category">UI/UX • Design Systems</span>
                     </div>
-                    <p class="project-description">A streamlined banking interface engineered to simplify asset management, peer transfers, and micro-investments through minimalist interaction patterns.</p>
+                    <p class="project-description">A streamlined mobile architecture built to simplify multi-currency asset tracking, high-speed peer settlements, and contextual micro-investments through an uncluttered dark interface.</p>
                     <div class="project-tags">
                         <span class="tag">Mobile App</span>
-                        <span class="tag">Design Systems</span>
+                        <span class="tag">Design Tokens</span>
                         <span class="tag">Fintech</span>
                     </div>
                 </a>
 
                 <a href="https://www.behance.net/sircatalyst" class="project-card" target="_blank">
                     <div class="project-header">
-                        <span class="project-title">E-Commerce Brand Identity</span>
-                        <span class="project-category">Visual Identity</span>
+                        <span class="project-title">Sustainable E-Commerce Brand Identity</span>
+                        <span class="project-category">Art Direction • Branding</span>
                     </div>
-                    <p class="project-description">Comprehensive visual language and digital storefront direction for a sustainable apparel brand focusing on tactile typography and muted earth tones.</p>
+                    <p class="project-description">Complete visual overhaul and digital storefront direction for a conscious apparel label, utilizing organic typography, earthy palettes, and immersive catalog layouts.</p>
                     <div class="project-tags">
-                        <span class="tag">Branding</span>
-                        <span class="tag">Art Direction</span>
+                        <span class="tag">Brand Identity</span>
                         <span class="tag">Web Design</span>
+                        <span class="tag">Typography</span>
                     </div>
                 </a>
 
                 <a href="https://www.behance.net/sircatalyst" class="project-card" target="_blank">
                     <div class="project-header">
-                        <span class="project-title">SaaS Analytics Dashboard</span>
-                        <span class="project-category">Product Design</span>
+                        <span class="project-title">Enterprise SaaS Analytics Telemetry</span>
+                        <span class="project-category">Product Design • Data Viz</span>
                     </div>
-                    <p class="project-description">Data-dense visualization portal built for enterprise telemetry tracking, reducing cognitive load via structured hierarchy and adaptive dark-mode layout.</p>
+                    <p class="project-description">High-density data portal engineered for real-time cloud operations monitoring, reducing user cognitive load via component-driven hierarchy and adaptive visual states.</p>
                     <div class="project-tags">
                         <span class="tag">Dashboard</span>
-                        <span class="tag">Data Viz</span>
+                        <span class="tag">Data Visualization</span>
                         <span class="tag">UX Research</span>
                     </div>
                 </a>
 
                 <a href="https://www.behance.net/sircatalyst" class="project-card" target="_blank">
                     <div class="project-header">
-                        <span class="project-title">Editorial Architecture Zine</span>
-                        <span class="project-category">Editorial Design</span>
+                        <span class="project-title">Editorial Architecture & Print Zine</span>
+                        <span class="project-category">Editorial • Layout</span>
                     </div>
-                    <p class="project-description">Print and digital publication layout celebrating brutalist architectural forms through asymmetrical grid systems and high-contrast typography.</p>
+                    <p class="project-description">An exploration of brutalist urban structures rendered through asymmetrical grid layouts, bespoke typographic pairings, and dramatic contrast print publications.</p>
                     <div class="project-tags">
+                        <span class="tag">Editorial Grid</span>
                         <span class="tag">Typography</span>
-                        <span class="tag">Layout</span>
                         <span class="tag">Print</span>
                     </div>
                 </a>
 
                 <a href="https://www.behance.net/sircatalyst" class="project-card" target="_blank">
                     <div class="project-header">
-                        <span class="project-title">Healthcare Patient Portal</span>
-                        <span class="project-category">UX Architecture</span>
+                        <span class="project-title">Accessible Healthcare Patient Portal</span>
+                        <span class="project-category">UX Architecture • Accessibility</span>
                     </div>
-                    <p class="project-description">Accessible, human-centric patient portal easing appointment scheduling, medical record retrieval, and secure provider messaging for elderly demographics.</p>
+                    <p class="project-description">A compassionate, human-centered web application easing appointment booking, digital prescriptions, and secure clinical messaging for multi-generational demographics.</p>
                     <div class="project-tags">
-                        <span class="tag">Accessibility</span>
+                        <span class="tag">Accessibility (WCAG)</span>
                         <span class="tag">User Research</span>
                         <span class="tag">Web App</span>
                     </div>
@@ -247,26 +332,26 @@
 
                 <a href="https://www.behance.net/sircatalyst" class="project-card" target="_blank">
                     <div class="project-header">
-                        <span class="project-title">Immersive Audio Gear Landing</span>
-                        <span class="project-category">Interaction Design</span>
+                        <span class="project-title">Immersive Audio Hardware Microsite</span>
+                        <span class="project-category">Interaction • WebGL</span>
                     </div>
-                    <p class="project-description">High-end promotional microsite featuring micro-interactions, spatial typography, and narrative-driven scroll dynamics for a boutique hardware release.</p>
+                    <p class="project-description">A high-end storytelling landing page featuring spatial typography, fluid micro-interactions, and cinematic product showcase dynamics for boutique audio devices.</p>
                     <div class="project-tags">
                         <span class="tag">Micro-interactions</span>
                         <span class="tag">Landing Page</span>
-                        <span class="tag">3D Assets</span>
+                        <span class="tag">Creative Direction</span>
                     </div>
                 </a>
 
                 <a href="https://www.behance.net/sircatalyst" class="project-card" target="_blank">
                     <div class="project-header">
-                        <span class="project-title">Autonomous Logistics Control</span>
-                        <span class="project-category">Systems Design</span>
+                        <span class="project-title">Autonomous Fleet Dispatch Control</span>
+                        <span class="project-category">Complex Systems • Operations</span>
                     </div>
-                    <p class="project-description">Control center interface for autonomous fleet management, focusing on real-time alerting states, spatial maps, and high-efficiency dispatcher workflows.</p>
+                    <p class="project-description">Mission control dashboard for managing autonomous logistics networks, optimized for real-time exception handling, live spatial mapping, and high-efficiency operators.</p>
                     <div class="project-tags">
-                        <span class="tag">Enterprise</span>
-                        <span class="tag">Mapping</span>
+                        <span class="tag">Enterprise UX</span>
+                        <span class="tag">Mapping Systems</span>
                         <span class="tag">Operations</span>
                     </div>
                 </a>
@@ -274,9 +359,15 @@
             </div>
         </main>
 
+        <div class="interactive-cta">
+            <h3>Let's build something exceptional together.</h3>
+            <p>Available for select full-time roles, design leadership, and strategic product engagements.</p>
+            <a href="mailto:catalystvx@gmail.com" class="btn">Get in Touch via Email</a>
+        </div>
+
         <footer>
             <span>© 2026 Oreoluwaposi Samuel</span>
-            <span>Available Fulltime</span>
+            <span>Nigeria • Remote</span>
         </footer>
     </div>
 
